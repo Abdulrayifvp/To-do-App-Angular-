@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-center  h-100">
+  <div class="example-container">
+    <h2>To do</h2>
+  
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="todo"
+      [cdkDropListConnectedTo]="[doneList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}<img (click)="onDelete(item,'todo')" style="cursor: pointer;" src="https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png" height="20px" width="20px" alt=""></div>
+    </div>
+  </div>
+  
+  <div class="example-container">
+    <h2>Done</h2>
+  
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="done"
+      [cdkDropListConnectedTo]="[todoList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}<img (click)="onDelete(item,'done')" style="cursor: pointer;" src="https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png" height="20px" width="20px" alt=""></div>
+    </div>
+  </div>
+</div>
+
+
